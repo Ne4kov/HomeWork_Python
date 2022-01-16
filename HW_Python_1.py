@@ -19,11 +19,35 @@ print('w = ', type(w))
 print('r = ', type(r))
 print('t = ', type(t))
 
+#конкатенация
 aa = '"Lord of'
 bb = ' the Rings"'
 like = aa + bb
 print('I like', like)
 
+# вывести в консоль через ","
+
 print('I am', a, b)
 
+# вывести в консоль через +
+
 print('Hello', a+str(b))
+
+
+
+# расширенное задание 
+cc = 8
+dd = 7
+# разделить
+rr = cc / dd
+print('rr = ', rr)
+# умножить
+ee = cc * dd
+print('ee =', ee)
+# разделить без остатка
+rd = cc // dd
+print('rd = ', rd)
+# присвоить остаток от деления
+dr = cc % dd
+print('dr = ', dr)
+
