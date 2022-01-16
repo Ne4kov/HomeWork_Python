@@ -51,3 +51,5 @@ print('rd = ', rd)
 dr = cc % dd
 print('dr = ', dr)
 
+xx = (7+12)**3 + 7 * 4 - 44/2**4
+print(xx)
