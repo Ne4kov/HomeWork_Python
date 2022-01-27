@@ -9,13 +9,25 @@ eurkusd = 1.11
 usdkbyn = 2.5
 
 
-
 parser = argparse.ArgumentParser()
-parser.add_argument('--num1', type=int)
-parser.add_argument('--num2', type=int)
-# parser.add_argument('--action', type=str)
-#
+parser.add_argument('--exchange', type=str,)
+parser.add_argument('--your', type=str, )
+parser.add_argument('--amount', type=int, )
+
 args = parser.parse_args()
-usd = args.num1 / usdkbyn
-print('Ты ввел', args.num1, 'BYN')
-print("конвертированная сумма в USD = ", usd)
+
+you = args.your
+exc = args.exchange
+am = args.amount
+
+if you == 'usd':
+    if exc == 'byn':
+        byn = am * usdkbyn
+        print('Ты ввел', am, 'usd')
+        print(("конвертированная сумма в byn = ", byn))
+    elif exc == 'eur':
+        eur = am / eurkusd
+        print('Ты ввел', am, 'usd')
+        print(("конвертированная сумма в eur = ", eur))
+
+
