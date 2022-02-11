@@ -24,16 +24,10 @@ aa = '"Lord of'
 bb = ' the Rings"'
 like = aa + bb
 print('I like', like)
-
 # вывести в консоль через ","
-
 print('I am', a, b)
-
 # вывести в консоль через +
-
 print('Hello', a+str(b))
-
-
 
 # расширенное задание 
 cc = 8
@@ -51,5 +45,7 @@ print('rd = ', rd)
 dr = cc % dd
 print('dr = ', dr)
 
+# Расставить знаки, что бы получилось 6884.25
+# (7+12) 3 + 7 * 4 - 44/2 4
 xx = (7+12)**3 + 7 * 4 - 44/2**4
 print(xx)
