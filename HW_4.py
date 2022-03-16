@@ -276,7 +276,7 @@ while True:
                 continue
     else:
         print('вы ввели не валидную валюту')
-        continue
+
 
 
 

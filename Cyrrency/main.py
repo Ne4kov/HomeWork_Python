@@ -14,19 +14,30 @@
 #     8. Валюту пользователя определите сами.
 #     9. Код разбит на функции. Отдельные функции можно вынести в другие .py файлы и вызывать их в main.py предвварительно импортируя в main.py.
 
-from Cyrr_def import usd_f, eur_f, chf_f, gpb_f, cny_f
+from Cyrr_def import cyrren_f
 
+usd = 'USD'
+eur = 'EUR'
+chf = 'CHF'
+gpb = 'GPB'
+cny = 'CNY'
+
+usd_k = {'USD': 1, 'EUR': 0.87, 'CHF': 0.92, 'GBP': 0.73, 'CNY': 6.35}
+eur_k = {'USD': 1.14, 'EUR': 1, 'CHF': 1.05, 'GBP': 0.84, 'CNY': 7.21}
+chf_k = {'USD': 1.08, 'EUR': 0.95, 'CHF': 1, 'GBP': 0.80, 'CNY': 6.86}
+gpb_k = {'USD': 1.36, 'EUR': 1.20, 'CHF': 1.26, 'GBP': 1, 'CNY': 6.62}
+cny_k = {'USD': 0.16, 'EUR': 0.14, 'CHF': 0.15, 'GBP': 0.12, 'CNY': 1}
 while True:
     currency = input("Выберите валюту из ['USD','EUR','CHF','GBP','CNY']")
     if currency == usd:
-        usd_f({'USD': 1, 'EUR': 0.87, 'CHF': 0.92, 'GBP': 0.73, 'CNY': 6.35})
+        cyrren_f(usd_k, 'USD')
     elif currency == eur:
-        eur_f({'USD': 1.14, 'EUR': 1, 'CHF': 1.05, 'GBP': 0.84, 'CNY': 7.21})
+        cyrren_f(eur_k, 'EUR')
     elif currency == chf:
-        chf_f({'USD': 1.08, 'EUR': 0.95, 'CHF': 1, 'GBP': 0.80, 'CNY': 6.86})
+        cyrren_f(chf_k, 'CHF')
     elif currency == gpb:
-        gpb_f({'USD': 1.36, 'EUR': 1.20, 'CHF': 1.26, 'GBP': 1, 'CNY': 6.62})
+        cyrren_f(gpb_k, 'GPB')
     elif currency == cny:
-        cny_f({'USD': 0.16, 'EUR': 0.14, 'CHF': 0.15, 'GBP': 0.12, 'CNY': 1})
+        cyrren_f(cny_k , 'CNY')
     else:
         print('вы ввели не валидную валюту')
