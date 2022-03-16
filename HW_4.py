@@ -100,12 +100,70 @@ import argparse
 #     7. После сообщеня об ошибке, скрипт должен автоматом вернуться к шагу 1.
 
 
+# Первая итерация:
+
+# k_usd = {'USD': 1, 'EUR': 0.87, 'CHF': 0.92, 'GBP': 0.73, 'CNY': 6.35}
+# k_eur = {'USD': 1.14, 'EUR': 1, 'CHF': 1.05, 'GBP': 0.84, 'CNY': 7.21}
+# k_chf = {'USD': 1.08, 'EUR': 0.95, 'CHF': 1, 'GBP': 0.80, 'CNY': 6.86}
+# k_gpb = {'USD': 1.36, 'EUR': 1.20, 'CHF': 1.26, 'GBP': 1, 'CNY': 6.62}
+# k_cny = {'USD': 0.16, 'EUR': 0.14, 'CHF': 0.15, 'GBP': 0.12, 'CNY': 1}
+# usd = 'USD'
+# eur = 'EUR'
+# chf = 'CHF'
+# gpb = 'GPB'
+# cny = 'CNY'
+# while True:
+#     currency = input("Выберите валюту из ['USD','EUR','CHF','GBP','CNY']")
+#
+#     if currency.strip() == '' or len(currency) == 0:
+#         print("Вы ввели пустое поле. Введите число.")
+#
+#     else:
+#         try:
+#             if currency == usd:
+#                 summ = input("Введите сумму")
+#                 if int(summ) >= 0:
+#                     print('Вы ввели сумму ', summ, 'и валюту ', usd)
+#                     for k, v in k_usd.items():
+#                         r = int(summ) * v
+#                         print('конвертированная сумма в ', k, ' = ', round(r, 2))
+#             if currency == eur:
+#                 summ = input("Введите сумму")
+#                 if int(summ) >= 0:
+#                     print('Вы ввели сумму ', summ, 'и валюту ', eur)
+#                     for k, v in k_eur.items():
+#                         r = int(summ) * v
+#                         print('конвертированная сумма в ', k, ' = ', round(r, 2))
+#             if currency == chf:
+#                 summ = input("Введите сумму")
+#                 if int(summ) >= 0:
+#                     print('Вы ввели сумму ', summ, 'и валюту ', chf)
+#                     for k, v in k_chf.items():
+#                         r = int(summ) * v
+#                         print('конвертированная сумма в ', k, ' = ', round(r, 2))
+#             if currency == gpb:
+#                 summ = input("Введите сумму")
+#                 if int(summ) >= 0:
+#                     print('Вы ввели сумму ', summ, 'и валюту ', gpb)
+#                     for k, v in k_gpb.items():
+#                         r = int(summ) * v
+#                         print('конвертированная сумма в ', k, ' = ', round(r, 2))
+#             if currency == cny:
+#                 summ = input("Введите сумму")
+#                 if int(summ) >= 0:
+#                     print('Вы ввели сумму ', summ, 'и валюту ', cny)
+#                     for k, v in k_cny.items():
+#                         r = int(summ) * v
+#                         print('конвертированная сумма в ', k, ' = ', round(r, 2))
+#             elif int(summ) < 0:
+#                 print("Введите положительное число.")
+#         except:
+#             print("Вы ввели не число. Введите число.")
 
 
+# Вторая итерация:
 
-
-
-
+import re
 
 
 
@@ -121,53 +179,104 @@ gpb = 'GPB'
 cny = 'CNY'
 while True:
     currency = input("Выберите валюту из ['USD','EUR','CHF','GBP','CNY']")
-
-    if currency.strip() == '' or len(currency) == 0:
-        print("Вы ввели пустое поле. Введите число.")
-
+    if currency == usd:
+        a = input('Введите сумму')
+        comp = re.compile('-')
+        m = comp.match(a)
+        if m:
+            print('вы ввели отрицательное число')
+            continue
+        elif len(a) == 0:
+            print('ты ничего не ввел')
+            continue
+        elif not a.isnumeric():
+            print('можно число, плеаз?')
+            continue
+        elif int(a) >= 0:
+            print('Вы ввели сумму ', a, 'и валюту ', usd)
+            for k, v in k_usd.items():
+                r = int(a) * v
+                print('конвертированная сумма в ', k, ' = ', round(r, 2))
+                continue
+    if currency == eur:
+        a = input('Введите сумму')
+        comp = re.compile('-')
+        m = comp.match(a)
+        if m:
+            print('вы ввели отрицательное число')
+            continue
+        elif len(a) == 0:
+            print('ты ничего не ввел')
+            continue
+        elif not a.isnumeric():
+            print('можно число, плеаз?')
+            continue
+        elif int(a) >= 0:
+            print('Вы ввели сумму ', a, 'и валюту ', eur)
+            for k, v in k_eur.items():
+                r = int(a) * v
+                print('конвертированная сумма в ', k, ' = ', round(r, 2))
+                continue
+    if currency == chf:
+        a = input('Введите сумму')
+        comp = re.compile('-')
+        m = comp.match(a)
+        if m:
+            print('вы ввели отрицательное число')
+            continue
+        elif len(a) == 0:
+            print('ты ничего не ввел')
+            continue
+        elif not a.isnumeric():
+            print('можно число, плеаз?')
+            continue
+        elif int(a) >= 0:
+            print('Вы ввели сумму ', a, 'и валюту ', chf)
+            for k, v in k_chf.items():
+                r = int(a) * v
+                print('конвертированная сумма в ', k, ' = ', round(r, 2))
+                continue
+    if currency == gpb:
+        a = input('Введите сумму')
+        comp = re.compile('-')
+        m = comp.match(a)
+        if m:
+            print('вы ввели отрицательное число')
+            continue
+        elif len(a) == 0:
+            print('ты ничего не ввел')
+            continue
+        elif not a.isnumeric():
+            print('можно число, плеаз?')
+            continue
+        elif int(a) >= 0:
+            print('Вы ввели сумму ', a, 'и валюту ', gpb)
+            for k, v in k_gpb.items():
+                r = int(a) * v
+                print('конвертированная сумма в ', k, ' = ', round(r, 2))
+                continue
+    if currency == cny:
+        a = input('Введите сумму')
+        comp = re.compile('-')
+        m = comp.match(a)
+        if m:
+            print('вы ввели отрицательное число')
+            continue
+        elif len(a) == 0:
+            print('ты ничего не ввел')
+            continue
+        elif not a.isnumeric():
+            print('можно число, плеаз?')
+            continue
+        elif int(a) >= 0:
+            print('Вы ввели сумму ', a, 'и валюту ', cny)
+            for k, v in k_cny.items():
+                r = int(a) * v
+                print('конвертированная сумма в ', k, ' = ', round(r, 2))
+                continue
     else:
-        try:
-            if currency == usd:
-                summ = input("Введите сумму")
-                if int(summ) >= 0:
-                    print('Вы ввели сумму ', summ, 'и валюту ', usd)
-                    for k, v in k_usd.items():
-                        r = int(summ) * v
-                        print('конвертированная сумма в ', k, ' = ', round(r, 2))
-            if currency == eur:
-                summ = input("Введите сумму")
-                if int(summ) >= 0:
-                    print('Вы ввели сумму ', summ, 'и валюту ', eur)
-                    for k, v in k_eur.items():
-                        r = int(summ) * v
-                        print('конвертированная сумма в ', k, ' = ', round(r, 2))
-            if currency == chf:
-                summ = input("Введите сумму")
-                if int(summ) >= 0:
-                    print('Вы ввели сумму ', summ, 'и валюту ', chf)
-                    for k, v in k_chf.items():
-                        r = int(summ) * v
-                        print('конвертированная сумма в ', k, ' = ', round(r, 2))
-            if currency == gpb:
-                summ = input("Введите сумму")
-                if int(summ) >= 0:
-                    print('Вы ввели сумму ', summ, 'и валюту ', gpb)
-                    for k, v in k_gpb.items():
-                        r = int(summ) * v
-                        print('конвертированная сумма в ', k, ' = ', round(r, 2))
-            if currency == cny:
-                summ = input("Введите сумму")
-                if int(summ) >= 0:
-                    print('Вы ввели сумму ', summ, 'и валюту ', cny)
-                    for k, v in k_cny.items():
-                        r = int(summ) * v
-                        print('конвертированная сумма в ', k, ' = ', round(r, 2))
-            elif int(summ) < 0:
-                print("Введите положительное число.")
-        except:
-            print("Вы ввели не число. Введите число.")
-
-
+        print('вы ввели не валидную валюту')
+        continue
 
 
 
